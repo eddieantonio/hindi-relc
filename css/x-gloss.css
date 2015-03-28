@@ -1,0 +1,17 @@
+/**
+ * Default styles for <x-gloss>
+ */
+x-gloss {
+    display: inline;
+    border-bottom: 1pt dashed transparent;
+    font-variant: small-caps;
+    transition: border-color 0.35s;
+}
+
+x-gloss[title] {
+    cursor: help;
+}
+
+x-gloss[title]:hover {
+    border-color: rgba(0, 0, 0, 0.8);
+}

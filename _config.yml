@@ -1,0 +1,7 @@
+# Site settings
+title: Hindi Relative Clauses
+baseurl: "/hindi-relc" # the subpath of your site, e.g. /blog/
+url: "http://eddiantonio.ca" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
