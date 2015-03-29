@@ -2,18 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-    <script src="js/x-gloss.js"></script>
-    <link media="all" href="css/x-gloss.css" type="text/css" rel="stylesheet">
+    <title>Hindi Relative Clauses</title>
+    <style>
+        html, body { margin:0; padding: 0; }
+        #delete-me-when-loaded {
+            bottom: 0; right: 0;
+        }
+        .load { opacity: 1; transition: opacity 1s ease-in; }
+        .load.hiding { opacity: 0; }
+    </style>
 </head>
 <body>
-    <h1>Demo for <code>&lt;x-gloss&gt;</code></h1>
-    <p>
-        <x-gloss>NOM</x-gloss>
-        <x-gloss>Acc</x-gloss>
-        <x-gloss>Gen</x-gloss>
-        <x-gloss>ERG</x-gloss>
-        <x-gloss>abs</x-gloss>
-    </p>
+    <div id="delete-me-when-loaded">
+        <p>Loading...</p>
+    </div>
+    <div class="page load hiding">
+        <h1>Demo for <code>&lt;x-gloss&gt;</code></h1>
+        <p>
+            <x-gloss>NOM</x-gloss>
+            <x-gloss>Acc</x-gloss>
+            <x-gloss>Gen</x-gloss>
+            <x-gloss>ERG</x-gloss>
+            <x-gloss>abs</x-gloss>
+        </p>
+    </div>
+
+    <script src="js/x-gloss.js"></script>
+    <script src="js/gloss-parser.js"></script>
+    <script src="js/data.js"></script>
+    <link href="css/x-gloss.css" type="text/css" rel="stylesheet">
+    <script>
+        var $ = document.querySelector.bind(document);
+
+        /* Get rid of stuff. */
+        $('#delete-me-when-loaded').remove();
+        $('.page.load.hiding').classList.remove('hiding');
+    </script>
+
 </body>
 </html>

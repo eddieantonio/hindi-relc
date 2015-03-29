@@ -13,34 +13,6 @@
         name = 'x-gloss';
     }
 
-    var GlossProto = Object.create(HTMLSpanElement.prototype);
-    /**
-     * Normalize and add a title attribute.
-     */
-    GlossProto.createdCallback = function () {
-        var original = this.innerText;
-        var normalized = original.trim().toLowerCase();
-
-        this.innerText = normalized;
-
-        if (this.attributes.title) {
-            /* Do not attempt to set a title if it already exists. */
-            return;
-        }
-
-        if (!(normalized in glossToName)) {
-            /* Could not find the gloss. */
-            return;
-        }
-
-        this.setAttribute('title', glossToName[normalized]);
-    };
-
-    var XGloss = document.registerElement(name, {
-        prototype: GlossProto
-    });
-
-
     /**
      * Taken from <http://en.wikipedia.org/wiki/List_of_glossing_abbreviations>.
      */
@@ -408,5 +380,42 @@
         '›': "direction of transitivity or possession\n(2›3 may mean 2 acts on 3; 1sg›sg may mean a 1sg possessor and a singular possessum)"
     };
 
+
+    var XGloss = document.registerElement(name, {
+        prototype: Object.create(HTMLSpanElement.prototype, {
+            /**
+             * Normalize and add a title attribute.
+             */
+            createdCallback: {
+                value: function () {
+                    var original = this.innerText;
+                    var normalized = original.trim().toLowerCase();
+
+                    this.innerText = normalized;
+
+                    if (this.attributes.title) {
+                        /* Do not attempt to set a title if it already exists. */
+                        return;
+                    }
+
+                    if (!(normalized in glossToName)) {
+                        /* Could not find the gloss. */
+                        return;
+                    }
+
+                    this.setAttribute('title', glossToName[normalized]);
+                }
+            }
+        })
+    });
+
+    XGloss.glossToName = glossToName;
+
+    if (document && document.currentScript) {
+        /* Assume we're a browser. */
+        window.XGlossElement = XGloss;
+        /* TODO: Cool stuff here. */
+    }
+
     return XGloss;
-}.call(this, 'x-gloss'));
+}.call(this));

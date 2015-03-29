@@ -3,13 +3,13 @@
  */
 x-gloss {
     display: inline;
-    border-bottom: 1pt dashed transparent;
     font-variant: small-caps;
-    transition: border-color 0.35s;
 }
 
 x-gloss[title] {
+    border-bottom: 1pt dashed transparent;
     cursor: help;
+    transition: border-color 350ms ease-in-out;
 }
 
 x-gloss[title]:hover {
