@@ -5,7 +5,7 @@
     <title>Hindi Relative Clauses</title>
     <style>
         html, body { margin:0; padding: 0; }
-        #delete-me-when-loaded {
+        .loading-placeholder {
             bottom: 0; right: 0;
         }
         .load { opacity: 1; transition: opacity 1s ease-in; }
@@ -13,30 +13,73 @@
     </style>
 </head>
 <body>
-    <div id="delete-me-when-loaded">
+    <div id="delete-me-when-loaded" class="loading-placeholder">
         <p>Loading...</p>
     </div>
     <div class="page load hiding">
-        <h1>Demo for <code>&lt;x-gloss&gt;</code></h1>
-        <p>
-            <x-gloss>NOM</x-gloss>
-            <x-gloss>Acc</x-gloss>
-            <x-gloss>Gen</x-gloss>
-            <x-gloss>ERG</x-gloss>
-            <x-gloss>abs</x-gloss>
-        </p>
+        <div class="content"></div>
     </div>
 
     <script src="js/x-gloss.js"></script>
     <script src="js/gloss-parser.js"></script>
     <script src="js/data.js"></script>
+    <script src="js/resig-microtemplating.js"></script>
+    <!-- this is the worst template ever. -->
+    <script id="tabletemplate" type="text/template">
+        <% var i, j, element, morpheme, group = 0; %>
+        <table class="gl-table">
+            <tr class="gl-transliteration">
+            <% for (i = 0; i < gloss.length; i++) { %>
+                <% element = gloss[i]; %>
+                <% if (element === '[') { %>
+                    <td class="gl-group gl-group-<%=(group++)%> gl-start">[</td>
+                <% } else if (element === ']') { %>
+                    <td class="gl-group gl-group-<%=(group--)%> gl-end">]</td>
+                <% } else { %>
+                <td<% if (element.classes.length) { %> class="<%=(element.classes.join(' '))%>"<% } %>>
+                        <%= element.text.join('') %>
+                    </td>
+                <% } %>
+            <% } %>
+            </tr>
+            <tr class="gl-gloss">
+            <% for (i = 0; i < gloss.length; i++) { %>
+                <% element = gloss[i]; %>
+                <% if (element === '[') { %>
+                    <td class="gl-group gl-group-<%=(group++)%> gl-end">[</td>
+                <% } else if (element === ']') { %>
+                    <td class="gl-group gl-group-<%=(group--)%> gl-end">]</td>
+                <% } else { %>
+                    <td<% if (element.classes.length) { %> class="<%=(element.classes.join(' '))%>"<% } %>>
+                        <% for (j = 0; j < element.gloss.length; j++) { %>
+                            <% morpheme = element.gloss[j]; %>
+                            <% if (morpheme.abbr) { %>
+                                <x-gloss><%= morpheme.abbr %></x-gloss>
+                            <% } else if (morpheme.literal ) { %> 
+                                <%= morpheme.literal %>
+                            <% } else { %>
+                                <%= morpheme %>
+                            <% } %>
+                        <% } %>
+                    </td>
+                <% } %>
+            <% } %>
+            </tr>
+        </table>
+    </script>
+
+
     <link href="css/x-gloss.css" type="text/css" rel="stylesheet">
+    <script src="./bower_components/markup.js/src/markup.min.js"></script>
     <script>
+        /* ಠ_ಠ */
         var $ = document.querySelector.bind(document);
+        var mkTable = tmpl('tabletemplate');
 
         /* Get rid of stuff. */
         $('#delete-me-when-loaded').remove();
         $('.page.load.hiding').classList.remove('hiding');
+        $('.content').innerHTML = mkTable(GLOSSES.hindi_2);
     </script>
 
 </body>
