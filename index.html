@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,53 +26,10 @@
     <script src="js/gloss-parser.js"></script>
     <script src="js/data.js"></script>
     <script src="js/resig-microtemplating.js"></script>
-    <!-- this is the worst template ever. -->
-    <script id="tabletemplate" type="text/template">
-        <% var i, j, element, morpheme, group = 0; %>
-        <table class="gl-table">
-            <tr class="gl-transliteration">
-            <% for (i = 0; i < gloss.length; i++) { %>
-                <% element = gloss[i]; %>
-                <% if (element === '[') { %>
-                    <td class="gl-group gl-group-<%=(group++)%> gl-start">[</td>
-                <% } else if (element === ']') { %>
-                    <td class="gl-group gl-group-<%=(group--)%> gl-end">]</td>
-                <% } else { %>
-                <td<% if (element.classes.length) { %> class="<%=(element.classes.join(' '))%>"<% } %>>
-                        <%= element.text.join('') %>
-                    </td>
-                <% } %>
-            <% } %>
-            </tr>
-            <tr class="gl-gloss">
-            <% for (i = 0; i < gloss.length; i++) { %>
-                <% element = gloss[i]; %>
-                <% if (element === '[') { %>
-                    <td class="gl-group gl-group-<%=(group++)%> gl-end">[</td>
-                <% } else if (element === ']') { %>
-                    <td class="gl-group gl-group-<%=(group--)%> gl-end">]</td>
-                <% } else { %>
-                    <td<% if (element.classes.length) { %> class="<%=(element.classes.join(' '))%>"<% } %>>
-                        <% for (j = 0; j < element.gloss.length; j++) { %>
-                            <% morpheme = element.gloss[j]; %>
-                            <% if (morpheme.abbr) { %>
-                                <x-gloss><%= morpheme.abbr %></x-gloss>
-                            <% } else if (morpheme.literal ) { %> 
-                                <%= morpheme.literal %>
-                            <% } else { %>
-                                <%= morpheme %>
-                            <% } %>
-                        <% } %>
-                    </td>
-                <% } %>
-            <% } %>
-            </tr>
-        </table>
-    </script>
 
+    {% include table-tmpl.html %}
 
     <link href="css/x-gloss.css" type="text/css" rel="stylesheet">
-    <script src="./bower_components/markup.js/src/markup.min.js"></script>
     <script>
         /* ಠ_ಠ */
         var $ = document.querySelector.bind(document);
