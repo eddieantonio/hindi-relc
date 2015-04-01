@@ -52,6 +52,21 @@
         .fragment.answer.visible {
             color: red;
         }
+
+
+        p.translation {
+          text-align: left;
+        }
+        p.translation:before {
+            content: quote-left;
+        }
+        p.translation:after {
+            content: quote-right;
+        }
+
+        /* Temporary. */
+
+        p.language-tag { display: none; }
     </style>
 
     {% include table-tmpl.html %}

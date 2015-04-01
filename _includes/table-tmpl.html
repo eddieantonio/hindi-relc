@@ -1,7 +1,7 @@
 <!-- this is the worst template ever. -->
 <script id="tabletemplate" type="text/template">
-    <% var i, j, element, morpheme, group = 0; %>
     <table class="gl-table">
+        <% var i, j, element, morpheme, group = 0; %>
         <tr class="gl-transliteration">
         <% for (i = 0; i < gloss.length; i++) { %>
             <% element = gloss[i]; %>
@@ -39,4 +39,9 @@
         <% } %>
         </tr>
     </table>
+    <p class="translation"><%= translation %>
+    <% if (literal) { %>
+        <p class="literal translation">Lit: <%= literal %>
+    <% } %>
+    <p class="language-tag"><%= language %></p>
 </script>

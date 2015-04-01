@@ -6,6 +6,7 @@ var GLOSSES = {
 {% assign name = obj[0] %}
 {% assign gloss = obj[1] %}
     "{{ name }}": {
+        language: "{{ gloss.language }}",
         gloss: parser.parse("{{ gloss.gloss | strip_newlines }}"),
         translation: "{{ gloss.trans }}",
     {% if gloss.lit %}
