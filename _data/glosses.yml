@@ -5,16 +5,24 @@ bambara:
         tye|man ye|{PST} [ ne|{1SG} <head>so|horse min|{CMPL} ye|see ] san|buy
     trans: The man bought the horse I saw.
 
-hindi_1:
+hindi_child:
     language: Hindi
     gloss: >
         [ Jis|{REL} <head>banché|child ko|to Ravish|Ravish ne|{ERG} kutta|dog <inner verb>diya-tha|gave-{PST} ] usé|that.one byanak|bad kashi|cough hai|has
     trans: The child that Raveesh gave a dog to has a bad cough.
     lit: Whichever child Raveesh gave a dog to, that one has a bad cough
 
-hindi_2:
+hindi_book:
     language: Hindi
     gloss: >
         [ Vo|{REL} <head coref>pustak|book jisé|that Ravish|Ravish kala|yesterday <inner verb>padh-rha-tha|read-{CONT}-{PST} ] <coref>vo|that.one kho-gaye|missing-{CONT} hai|is
+    trans: The book that Raveesh was reading yesterday is missing.
+    lit: Whichever book Raveesh was reading yesterday, that one is missing.
+
+# Locality in correlatives, Rajesh Bhatt
+hindi_cd:
+    language: Hindi
+    gloss: >
+        [ Jo|{REL} <head coref>CD|CD sale-par|sale-on hai|is ] Maya|Maya us|{DEM} <coref>CD-ko|CD-{Acc} khariid-egi|buy-{Fut}.{F}
     trans: The book that Raveesh was reading yesterday is missing.
     lit: Whichever book Raveesh was reading yesterday, that one is missing.

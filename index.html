@@ -38,6 +38,10 @@
         .gl-gloss[data-gloss] {
               margin: 2em inherit;
         }
+        .reveal div.gl-gloss {
+            position: relative;
+            font-size: smaller;
+        }
 
         .gl-gloss td.head {
           color: red;
@@ -61,11 +65,7 @@
             margin-right: 0;
         }
 
-        .reveal .gl-gloss {
-            font-size: smaller;
-        }
-
-        .reveal [data-gloss="hindi_1"] table.gl-table {
+        .reveal [data-gloss^="hindi"] table.gl-table {
           /* HACK! */
           margin-left: -1em;
         }
@@ -91,6 +91,7 @@
         p.translation {
           text-align: left;
           quotes: "‘" "’";
+          margin: 0.3em inherit;
         }
         p.translation:before {
             content: open-quote;
@@ -103,7 +104,16 @@
         }
 
         /* Temporary. */
-        p.language-tag { display: none; }
+        p.language-tag {
+          display: inline;
+          position: absolute;
+          top: 0;
+          right: 0;
+          color: #555;
+        }
+
+        p.language-tag:before { content: "("; }
+        p.language-tag:after { content: ")"; }
     </style>
 
     {% include table-tmpl.html %}
