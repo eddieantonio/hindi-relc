@@ -41,12 +41,30 @@
 
         .gl-gloss td.head {
           color: red;
+          transition: color 250ms;
         }
+
+        .suppress-noun .gl-gloss td.head {
+          color: inherit;
+        }
+
         .reveal .gl-gloss .gl-table th,
         .reveal .gl-gloss .gl-table td {
           text-align: left;
           padding: 0.2em 0.25em 0em 0.25em;
           border-bottom: 0;
+        }
+
+        .suppress-clause td.gl-group {
+          opacity: 0;
+        }
+
+
+        td.gl-group {
+          width: 0%;
+          display: inline-block;
+          opacity: 1;
+          transition: opacity 250ms;
         }
 
         .fragment.answer.visible {
@@ -96,6 +114,16 @@
             controls: false,
             progress: false,
             transition: 'convex'
+        });
+
+        /* Listen to fragment events. */
+        Reveal.addEventListener('fragmentshown', function(event) {
+            var attr = 'data-disclose';
+            if (event.fragment.attributes[attr]) {
+                var value = event.fragment.attributes[attr].value
+                var el = document.querySelector('section.present');
+                el.classList.remove('suppress-' + value);
+            }
         });
 
     </script>

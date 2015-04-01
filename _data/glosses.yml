@@ -15,6 +15,6 @@ hindi_1:
 hindi_2:
     language: Hindi
     gloss: >
-        [ Vo|{REL} <head coref>pustak|book jisé|that Ravish|Ravish kala|yesterday <inner verb>padh-rha-tha|read-{CONT}-{PST} <coref>vo|that.one ] kho-gaye|missing-{CONT} hai|is
+        [ Vo|{REL} <head coref>pustak|book jisé|that Ravish|Ravish kala|yesterday <inner verb>padh-rha-tha|read-{CONT}-{PST} ] <coref>vo|that.one kho-gaye|missing-{CONT} hai|is
     trans: The book that Raveesh was reading yesterday is missing.
     lit: Whichever book Raveesh was reading yesterday, that one is missing.
