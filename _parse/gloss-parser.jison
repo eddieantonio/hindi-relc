@@ -38,15 +38,15 @@ start
     ;
 
 glosses
-    : gloss_or_constituent
+    : gloss_or_group
         { $$ = [].concat($1); }
-    | glosses gloss_or_constituent
+    | glosses gloss_or_group
         { $$ = $glosses.concat($2); }
     ;
 
-gloss_or_constituent
+gloss_or_group
     : gloss
-    | constituent
+    | group
     ;
 
 gloss
@@ -67,7 +67,7 @@ full_gloss
         }
     ;
 
-constituent
+group
     : '[' glosses ']'
         { $$ = ['['].concat($glosses).concat(']'); }
     ;

@@ -75,7 +75,7 @@ var parser = (function(){
 var o=function(k,v,o,l){for(o=o||{},l=k.length;l--;o[k[l]]=v);return o},$V0=[28,30],$V1=[2,19],$V2=[1,7],$V3=[1,8],$V4=[5,15,16,25,28,30],$V5=[1,19],$V6=[1,16],$V7=[2,18],$V8=[5,14,15,16,22,23,25,28,30],$V9=[27,30];
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"start":3,"glosses":4,"EOF":5,"gloss_or_constituent":6,"gloss":7,"constituent":8,"attributes":9,"gloss_body":10,"word_gloss":11,"full_gloss":12,"morphemes":13,"|":14,"[":15,"]":16,"word":17,"#":18,"literal_or_gloss":19,"more_morphemes":20,"tail_morpheme":21,"-":22,".":23,"abbreviation":24,"<":25,"words":26,">":27,"{":28,"}":29,"WORD":30,"$accept":0,"$end":1},
+symbols_: {"error":2,"start":3,"glosses":4,"EOF":5,"gloss_or_group":6,"gloss":7,"group":8,"attributes":9,"gloss_body":10,"word_gloss":11,"full_gloss":12,"morphemes":13,"|":14,"[":15,"]":16,"word":17,"#":18,"literal_or_gloss":19,"more_morphemes":20,"tail_morpheme":21,"-":22,".":23,"abbreviation":24,"<":25,"words":26,">":27,"{":28,"}":29,"WORD":30,"$accept":0,"$end":1},
 terminals_: {2:"error",5:"EOF",14:"|",15:"[",16:"]",18:"#",22:"-",23:".",25:"<",27:">",28:"{",29:"}",30:"WORD"},
 productions_: [0,[3,2],[4,1],[4,2],[6,1],[6,1],[7,2],[10,1],[10,1],[12,3],[8,3],[11,2],[13,2],[20,0],[20,2],[21,2],[21,2],[19,1],[19,1],[9,0],[9,3],[24,3],[26,1],[26,2],[17,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
