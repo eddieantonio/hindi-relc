@@ -81,6 +81,7 @@
         cit: "citation form",
         cl: "classifier",
         clf: "classifier",
+        cmpl: "complementizer",
         cnj: "conjunction (= conj)",
         cnsq: "consequential",
         cntr: "contrastive",
