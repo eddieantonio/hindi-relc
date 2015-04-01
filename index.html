@@ -56,12 +56,16 @@
 
         p.translation {
           text-align: left;
+          quotes: "‘" "’";
         }
         p.translation:before {
-            content: quote-left;
+            content: open-quote;
+        }
+        p.literal.translation:before {
+            content: "Lit: " open-quote;
         }
         p.translation:after {
-            content: quote-right;
+            content: close-quote;
         }
 
         /* Temporary. */
