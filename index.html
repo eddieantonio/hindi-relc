@@ -5,33 +5,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Hindi Relative Clauses</title>
+
     <style>
         html, body { margin:0; padding: 0; }
         .loading-placeholder {
+            position: absolute:
             bottom: 0; right: 0;
         }
-        .load { opacity: 1; transition: opacity 1s ease-in; }
-        .load.hiding { opacity: 0; }
+        .gorram-content { opacity: 1; transition: opacity 1s ease-in; }
+        .gorram-content.hiding { opacity: 0 !important; }
     </style>
-</head>
-<body>
-    <div id="delete-me-when-loaded" class="loading-placeholder">
-        <p>Loading...</p>
-    </div>
-
-    <div class="reveal hiding actual-gorram-content">
-        <div class="slides">
-            {% include slides.html %}
-        </div>
-    </div>
 
     <script src="js/x-gloss.js"></script>
     <script src="js/gloss-parser.js"></script>
     <script src="js/data.js"></script>
     <script src="js/resig-microtemplating.js"></script>
-    <script src="bower_components/reveal.js/js/reveal.js" type="text/javascript"></script>
-    <link href="bower_components/reveal.js/css/reveal.css" rel="stylesheet">
-    <link href="bower_components/reveal.js/css/theme/simple.css" rel="stylesheet">
+
+    <link href="css/reveal.css" rel="stylesheet">
+    <link href="css/theme/simple.css" rel="stylesheet">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
     <link href="css/x-gloss.css" type="text/css" rel="stylesheet">
     <style>
         /* TODO: Place this in its own file eventually. */
@@ -124,12 +129,24 @@
         .hide-language .language-tag {
             display: none;
         }
-
-
     </style>
+
+</head>
+<body>
+    <div id="delete-me-when-loaded" class="loading-placeholder">
+        <p>Loading...</p>
+    </div>
+
+    <div class="reveal hiding gorram-content">
+        <div class="slides">
+            {% include slides.html %}
+        </div>
+    </div>
 
     {% include table-tmpl.html %}
 
+    <script src="js/reveal.js" type="text/javascript"></script>
+    <script src="lib/js/head.min.js"></script>
     <script>
         /* ಠ_ಠ */
         var $ = document.querySelector.bind(document);
@@ -137,7 +154,7 @@
 
         /* Get rid of stuff. */
         $('#delete-me-when-loaded').remove();
-        $('.actual-gorram-content.hiding').classList.remove('hiding');
+        $('.gorram-content.hiding').classList.remove('hiding');
 
         var glosses = document.querySelectorAll('[data-gloss]');
         Array.prototype.forEach.call(glosses, function (elem) {
@@ -146,11 +163,15 @@
             elem.classList.add('gl-gloss');
         });
 
+
         /* Start Reveal. */
         Reveal.initialize({
             controls: false,
             progress: false,
-            transition: 'convex'
+            transition: 'convex',
+            dependencies: [
+                { src: 'plugin/notes/notes.js', async: true },
+            ]
         });
 
         /* Listen to fragment events. */
@@ -174,7 +195,7 @@
                 classes.add('suppress-' + name);
             });
         });
-
     </script>
+
 </body>
 </html>
