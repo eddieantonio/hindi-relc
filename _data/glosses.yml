@@ -8,9 +8,9 @@ bambara:
 hindi_child:
     language: Hindi
     gloss: >
-        [ Jis|{REL} <head>banché|child ko|to Ravish|Ravish ne|{ERG} kutta|dog <inner verb>diya-tha|gave-{PST} ] usé|that.one byanak|bad kashi|cough hai|has
+        [ Jis|{REL} <head coref>banché|child ko|to Ravish|Ravish ne|{ERG} kutta|dog <inner verb>diya-tha|gave-{PST} ] <coref>usé|that.one byanak|bad kashi|cough hai|has
     trans: The child that Raveesh gave a dog to has a bad cough.
-    lit: Whichever child Raveesh gave a dog to, that one has a bad cough
+    lit: Whichever child Raveesh gave a dog to, that one has a bad cough.
 
 hindi_book:
     language: Hindi
@@ -23,6 +23,6 @@ hindi_book:
 hindi_cd:
     language: Hindi
     gloss: >
-        [ Jo|{REL} <head coref>CD|CD sale-par|sale-on hai|is ] Maya|Maya us|{DEM} <coref>CD-ko|CD-{Acc} khariid-egi|buy-{Fut}.{F}
-    trans: The book that Raveesh was reading yesterday is missing.
-    lit: Whichever book Raveesh was reading yesterday, that one is missing.
+        [ Jo|{REL} <head coref>CD|CD sale-par|sale-on hai|is ] Maya|Maya <coref>us|{DEM} CD-ko|CD-{Acc} khariid-egi|buy-{Fut}.{F}
+    trans: Maya will buy the CD which is on sale.
+    lit: Whichever CD is on sale, Maya will buy that CD.

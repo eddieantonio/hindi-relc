@@ -52,6 +52,14 @@
           color: inherit;
         }
 
+        .with-coref .coref:after {
+            content: "i";
+
+            font-family: serif;
+            font-style: italic;
+            vertical-align: sub;
+        }
+
         .reveal .gl-gloss .gl-table th,
         .reveal .gl-gloss .gl-table td {
           text-align: left;
@@ -103,17 +111,21 @@
             content: close-quote;
         }
 
-        /* Temporary. */
-        p.language-tag {
+        .language-tag {
           display: inline;
           position: absolute;
           top: 0;
           right: 0;
           color: #555;
         }
+        .language-tag:before { content: "("; }
+        .language-tag:after { content: ")"; }
 
-        p.language-tag:before { content: "("; }
-        p.language-tag:after { content: ")"; }
+        .hide-language .language-tag {
+            display: none;
+        }
+
+
     </style>
 
     {% include table-tmpl.html %}
