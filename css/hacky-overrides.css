@@ -1,0 +1,96 @@
+@charset "UTF-8"; 
+
+.gl-gloss[data-gloss] {
+    margin: 2em inherit;
+}
+.reveal div.gl-gloss {
+    position: relative;
+    font-size: smaller;
+}
+
+.gl-gloss td.head {
+    color: red;
+    transition: color 250ms;
+}
+
+.suppress-noun .gl-gloss td.head {
+    color: inherit;
+}
+
+.with-coref .coref:after {
+    content: "i";
+    color: red;
+
+    font-family: serif;
+    font-style: italic;
+    vertical-align: sub;
+}
+
+.reveal .gl-gloss .gl-table th,
+.reveal .gl-gloss .gl-table td {
+    text-align: left;
+    padding: 0.2em 0.25em 0em 0.25em;
+    border-bottom: 0;
+    white-space: nowrap;
+}
+
+.reveal .gl-gloss .gl-table {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.reveal [data-gloss^="hindi"] table.gl-table {
+    /* HACK! */
+    margin-left: -1em;
+}
+
+
+.suppress-clause td.gl-group {
+    opacity: 0;
+}
+
+
+td.gl-group {
+    width: 0%;
+    display: inline-block;
+    opacity: 1;
+    transition: opacity 250ms;
+}
+
+.fragment.answer.visible {
+    color: red;
+}
+
+
+p.translation {
+    text-align: left;
+    quotes: "‘" "’";
+    margin: 0.3em inherit;
+}
+p.translation:before {
+    content: open-quote;
+}
+p.literal.translation:before {
+    content: "Lit: " open-quote;
+}
+p.translation:after {
+    content: close-quote;
+}
+
+.language-tag {
+    display: inline;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #555;
+}
+.language-tag:before { content: "("; }
+.language-tag:after { content: ")"; }
+
+.hide-language .language-tag {
+    display: none;
+}
+
+@media print {
+    .reveal section .questions { font-size: smaller; }
+}
