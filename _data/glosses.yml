@@ -24,6 +24,6 @@ hindi_book:
 hindi_cd:
     language: Hindi
     gloss: >
-        [ Vo|{DEM} <head coref>CD|CD jo|{REL} sale-par|sale-on hai|is ] Maya|Maya.{F} <coref>usé|{DEM} khariid-egi|buy-{Fut}.{F}
+        [ Vo|{DEM} <head coref>CD|CD jo|{REL} sale-par|sale-on hai|is ] Maya|Maya.{F} <coref>usé|{DEM} ko|{ACC} khariid-egi|buy-{Fut}.{F}
     trans: Maya will buy the CD which is on sale.
     lit: Whichever CD is on sale, Maya will buy that one.
