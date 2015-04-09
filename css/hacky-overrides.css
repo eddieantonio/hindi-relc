@@ -56,6 +56,9 @@
     opacity: 0;
 }
 
+.reveal section .questions {
+    font-size: smaller;
+}
 
 td.gl-group {
     width: 0%;
@@ -99,7 +102,6 @@ p.translation:after {
 }
 
 @media print {
-    .reveal section .questions { font-size: smaller; }
 
     [data-gloss="hindi_child"] {
         font-size: 70% !important;

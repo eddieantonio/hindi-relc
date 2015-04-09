@@ -27,3 +27,11 @@ hindi_cd:
         [ Vo|{DEM} <head coref>CD|CD jo|{REL} sale-par|sale-on hai|is ] Maya|Maya.{F} <coref>usé|{DEM} ko|{ACC} khariid-egi|buy-{Fut}.{F}
     trans: Maya will buy the CD which is on sale.
     lit: Whichever CD is on sale, Maya will buy that one.
+
+# From Locality in Correlatives, Rajesh Bhatt
+hindi_cd_double:
+    language: Hindi
+    gloss: >
+        [ Jo|{REL} <head coref>CD|CD sale-par|sale-on hai|is ] Maya|Maya.{F} us|{DEM} <head>CD|CD <coref>ko|{ACC} khariid-egi|buy-{Fut}.{F}
+    trans: Maya will buy the CD which is on sale.
+    lit: Whichever CD is on sale, Maya will buy that CD.
